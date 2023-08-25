@@ -1,0 +1,22 @@
+import { createSlice } from "@reduxjs/toolkit";
+
+export const QuestionReducer = createSlice({
+    name:"question",
+    initialState:{
+        queue:[],
+        answers:[],
+        trace:0
+    },
+    reducers : {
+           startExamAction : (state,action)=>{
+            return{
+                ...state,
+                queue:action.payload
+            }
+
+           }
+    } 
+})
+
+export const {startExamAction} = QuestionReducer.actions
+export default QuestionReducer.reducer;
