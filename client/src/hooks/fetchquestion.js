@@ -25,7 +25,7 @@ export const useFetchQuestion = () => {
                 }
             }
             catch (err) {
-                setgetdata(prev => ({ ...prev, isLoading: false }))
+                setgetdata(prev => ({ ...prev, isLoading: false })) 
                 setgetdata(prev => ({ ...prev, serverErro : err }))
             }
         })(); 
@@ -33,4 +33,19 @@ export const useFetchQuestion = () => {
     }, [dispatch]);
     return [getdata, setgetdata];
 
+}
+
+export const moveNextQuestion = ()=>async (dispatch)=>{
+    try {
+        dispatch(Action.moveNextAction());
+    } catch (error) {
+        console.log(error)
+    }
+}
+export const movePrevQuestion = ()=>async (dispatch)=>{
+    try {
+        dispatch(Action.movePrevAction());
+    } catch (error) {
+        console.log(error)
+    }
 }

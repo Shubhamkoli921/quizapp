@@ -2,9 +2,16 @@ import React  from "react"
 import '../styles/result.css'
 import { Link } from "react-router-dom"
 import ResultTable from "./resultTable"
+import { useDispatch } from "react-redux"
+import { resetResultAction } from "../redux/resultReducer"
+import { resetAllAction } from "../redux/questionReducer"
 export default function Result(){
+
+    const dispatch = useDispatch()
     function onRestart(){
-        console.log("on restart")
+        console.log("on restart")      
+        dispatch(resetResultAction())
+        dispatch(resetAllAction())
     }
 
     return (

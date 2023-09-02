@@ -9,10 +9,23 @@ export const ResultReducer = createSlice({
     reducers:{
         setUserId:(state,action)=>{
             state.userId=action.payload
+        },
+        pushResultArray: (state, action) =>{
+            state.result.push(action.payload)
+        },
+        updateResultAction:(state,action)=>{
+            const {trace, checked} = action.payload;
+            state.result.fill(checked,trace,trace+1)
+        },
+        resetResultAction : ()=>{
+            return{
+                userId:null,
+                result:[]
+            }
         }
     }
 })
     
 
-export const {setUserId} = ResultReducer.actions 
+export const {setUserId, pushResultArray,resetResultAction,updateResultAction} = ResultReducer.actions 
 export default ResultReducer.reducer;
